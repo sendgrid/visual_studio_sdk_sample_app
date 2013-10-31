@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SendGrid SDK Sample App</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <!-- SendGrid SDK references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <form>
+        <div id="mailcontent" class="ms-grid">
+            <img src="images/sendgrid_logo.png" title="SendGrid Email Delivery" />
+            <input id="to" name="to" type="text" placeholder="Email">
+            <input id="subject" name="subject" type="text" placeholder="Subject">
+            <textarea id="message" name="message" placeholder="Message"></textarea>
+            <button class="send" type="button">Send</button>
+            <div id="success">Message was successfuly sent!</div>
+            <div id="error">All inputs are required!</div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿form {
+    display: -ms-grid;
+    -ms-grid-rows: 1fr auto 1fr;
+    -ms-grid-columns: 1fr auto 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+
+#mailcontent {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    display: -ms-grid;
+    -ms-grid-rows: 1fr;
+    width:20em;
+    -ms-grid-columns: auto min-content auto auto auto;
+}
+
+img {
+    -ms-grid-column: 1;
+    -ms-grid-column-align: center;
+    -ms-grid-row: 1;
+    width: 10em;
+    margin: 10px 0px 10px 0px;
+}
+
+.ms-grid input,
+.ms-grid textarea {
+    -ms-grid-row-align: center;
+    width: auto;
+}
+
+button {
+    -ms-grid-row-align: center;
+    -ms-grid-row-align: center;
+    width: auto;
+}
+
+#to {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+}
+
+#subject {
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+}
+
+#message {
+    -ms-grid-column: 1;
+    -ms-grid-row: 4;
+    height: 10em;
+    margin-bottom: 8px;
+}
+
+button.send {
+    -ms-grid-column: 1;
+    -ms-grid-row: 5;
+    -ms-grid-row-align: center;
+}
+
+#error, #success {
+    -ms-grid-column: 1;
+    -ms-grid-row: 6;
+    text-align: center;
+    display: none;
+}
+
+#error {
+    color: red;
+}
+
+#success {
+    color: yellow;
+}

@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="SDK_SampleApp_CSharp.MainPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SDK_SampleApp_CSharp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="10,0,-10,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="541*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="545*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="216*"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="134"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="21"/>
+            <RowDefinition Height="179*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Center" Width="160" Source="Assets/sendgrid_logo.png" Grid.Row="1" Grid.Column="1" Margin="60,0"/>
+        <TextBox x:Name="_to" TextWrapping="Wrap" Text="Email" TextAlignment="Center" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="15,5,15,4"/>
+        <TextBox x:Name="_subject" TextWrapping="Wrap" Text="Subject" TextAlignment="Center" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Margin="15,5,15,4"/>
+        <TextBox x:Name="_message" TextWrapping="Wrap" Text="Message" TextAlignment="Center" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="250" MinHeight="124" Margin="15,5"/>
+        <Button Content="Send" HorizontalAlignment="Center" Margin="14,6,16,7" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Width="250" Click="OnSendClick"/>
+        <TextBlock x:Name="_error" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" FontSize="14" Text="An error has occurred!" TextAlignment="Center" Foreground="Red" Visibility="Collapsed"/>
+        <TextBlock x:Name="_success" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" FontSize="14" Text="Message was successfuly sent!" TextAlignment="Center" Foreground="Yellow" Visibility="Collapsed"/>
+    </Grid>
+</Page>
