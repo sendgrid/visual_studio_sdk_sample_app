@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Data.Json;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using Newtonsoft.Json.Linq;
+using SDK_SampleApp_WindowsPhone.Resources;
 
-namespace SDK_SampleApp_CSharp
+namespace SDK_SampleApp_WindowsPhone
 {
-    /// <summary>
-    /// Sample App using SendGid SDK
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public partial class MainPage : PhoneApplicationPage
     {
+        // Constructor
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+
+            // Sample code to localize the ApplicationBar
+            //BuildLocalizedApplicationBar();
         }
 
         /// <summary>
@@ -34,15 +32,15 @@ namespace SDK_SampleApp_CSharp
         {
             try
             {
-                // Get value for inputs 
+                /* Get value for inputs */
                 string to = this._to.Text;
                 string subject = this._subject.Text;
                 string message = this._message.Text;
 
-                // Validate 
+                /* Validate */
                 if (to == "" || subject == "" || message == "" || to == "Email" || subject == "Subject" || message == "Message")
                 {
-                    // Show error message 
+                    /* Show error message */
                     this._error.Visibility = Visibility.Visible;
                     this._error.Text = "All inputs are required!";
                     this._success.Visibility = Visibility.Collapsed;
@@ -50,21 +48,22 @@ namespace SDK_SampleApp_CSharp
                 }
 
                 SendGridSDK.Mail SendGrid = new SendGridSDK.Mail("SENDGRID_USERNAME", "SENDGRID_PASSWORD");
-                // Set Subject 
+
+                /* Set Subject */
                 SendGrid.setSubject(subject);
-                // Set From 
+                /* Set From */
                 SendGrid.setFrom("example@example.com");
                 SendGrid.setFromName("VisualStudio SDK Sample App");
-                // Add To 
+                /* Add To */
                 SendGrid.addTo(to);
-                // Set email text 
+                /* Set email text */
                 SendGrid.setText(message);
-                // Send email 
+                /* Send email */
                 String results = await SendGrid.send();
-                JsonObject response = JsonObject.Parse(results);
+                JObject response = JObject.Parse(results);
 
-                // Parse response and show success or error message 
-                if (response.GetNamedString("message") == "success")
+                /* Parse response and show success or error message */
+                if ((String)response.GetValue("message") == "success")
                 {
                     this._error.Visibility = Visibility.Collapsed;
                     this._success.Visibility = Visibility.Visible;
@@ -72,7 +71,7 @@ namespace SDK_SampleApp_CSharp
                 else
                 {
                     this._error.Visibility = Visibility.Visible;
-                    this._error.Text = response.GetNamedArray("errors").GetStringAt(0);
+                    this._error.Text = response.GetValue("errors")[0].ToString();
                     this._success.Visibility = Visibility.Collapsed;
                 }
             }

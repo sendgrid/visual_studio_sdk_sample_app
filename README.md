@@ -1,7 +1,7 @@
 SendGrid SDK Sample Apps
 ======================
 
-This git repository helps you to send emails quickly and easily through SendGrid on Windows Store Applications using C# or Javascript.
+This git repository helps you to send emails quickly and easily through SendGrid on Windows 8 Store Applications using C# or Javascript and Windows Phone 8 Applications.
 
 
 Running the sample apps
@@ -23,9 +23,9 @@ Clone SendGrid applications on your local machine
 
 ###Configuration for C# App###
 
-Add the Sendgrid SDK as a reference
+Add the Sendgrid SDK as a reference (For Windows Phone 8 App add the SendGrid SDK for Windows Phone)
 
-Configure `SDK-SampleApp-CSharp\MainPage.xaml.cs` file with your information:
+Configure `MainPage.xaml.cs` file with your information:
 
 Update the *&lt;sendgrid_username&gt;* and *&lt;sendgrid_password&gt;* with your SendGrid credentials.
 ```C#

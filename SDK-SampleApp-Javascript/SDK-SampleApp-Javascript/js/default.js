@@ -3,6 +3,7 @@
 
     var app = WinJS.Application;
     var SendGrid = new SendGridSDK.Mail("SENDGRID_USERNAME", "SENDGRID_PASSWORD");
+
     function sendMail() {
         /* Get value for inputs */
         var to = document.querySelector("#to").value,
